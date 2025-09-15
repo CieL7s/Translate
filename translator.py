@@ -139,7 +139,7 @@ class MangaTranslator:
     def _translate_with_google(self, text):
         self._rate_limit_api_call("google")
         try:
-            translator = GoogleTranslator(source=self.source, target=self.target)
+            translator = GoogleTranslator(source=self.source, target=self.target1)
             translated_text = translator.translate(text)
             return translated_text if translated_text is not None else text
         except:
@@ -243,4 +243,5 @@ class MangaTranslator:
             "en_id_loaded": self._hf_en_id_model is not None,
             "available_methods": list(self.translators.keys())
         }
+
         return info
